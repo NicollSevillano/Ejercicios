@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Text.RegularExpressions;
 
 namespace Ejercicio2
 {
     public partial class Form1 : Form
     {
+        Regex r;
         Premiacion _Premiacion;
         public Form1()
         {
@@ -22,6 +24,7 @@ namespace Ejercicio2
         private void Form1_Load(object sender, EventArgs e)
         {
             _Premiacion = new Premiacion();
+            r = new Regex(@"([a-z][A-Z]\d{2})");
         }
         public void RefrescarDirector()
         {
@@ -36,11 +39,13 @@ namespace Ejercicio2
             try
             {
                 string _codInvitacion = Interaction.InputBox("Codigo de invitación:");
+                if (!r.IsMatch(_codInvitacion)) MessageBox.Show("Codigo inválido"); return;
                 string _nombre = Interaction.InputBox("Nombre:");
+                if (string.IsNullOrEmpty(_nombre)) MessageBox.Show("Nombre inválido"); return; 
                 string _apellido = Interaction.InputBox("Apellido:");
-                DateTime _Inicio = DateTime.Parse(Interaction.InputBox("Fecha de Inicio"));
+                if (DateTime.TryParse(Interaction.InputBox("Fecha de Inicio"), out DateTime _inicio)) MessageBox.Show("Cadena inválida"); return;
 
-                _Premiacion.AgregarDirector(new Director(_codInvitacion, _nombre, _apellido, _Inicio));
+                _Premiacion.AgregarDirector(new Director(_codInvitacion, _nombre, _apellido, _inicio));
                 RefrescarDirector();
             }
             catch (Exception)
