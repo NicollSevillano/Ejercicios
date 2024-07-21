@@ -12,11 +12,13 @@ namespace Ejercicio2
         public Director(string pInvitacion, string pNombre, string pApellido, DateTime pInicio)
         {
             codInvitacion = pInvitacion; Nombre = pNombre; Apellido = pApellido; Inicio = pInicio;
+            lPelicula = new List<Pelicula>();
         }
         public string codInvitacion { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime Inicio { get; set; }
+        public List<Pelicula> lPelicula { get; set; }
     }
     public class DirectorASC : IComparer<Director>
     {
