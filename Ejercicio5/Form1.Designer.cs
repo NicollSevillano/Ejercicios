@@ -39,8 +39,15 @@
             this.Becalab = new System.Windows.Forms.Label();
             this.dgvBecas = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dgvActualizarRE = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvTotal = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBecas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActualizarRE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAlumnos
@@ -55,6 +62,7 @@
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(460, 196);
             this.dgvAlumnos.TabIndex = 0;
+            this.dgvAlumnos.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_RowEnter);
             // 
             // Alumnolab
             // 
@@ -138,7 +146,7 @@
             // 
             this.Becalab.AutoSize = true;
             this.Becalab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Becalab.Location = new System.Drawing.Point(610, 5);
+            this.Becalab.Location = new System.Drawing.Point(610, 9);
             this.Becalab.Name = "Becalab";
             this.Becalab.Size = new System.Drawing.Size(72, 20);
             this.Becalab.TabIndex = 8;
@@ -168,11 +176,73 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(1005, 87);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(101, 32);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Pagar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // dgvActualizarRE
+            // 
+            this.dgvActualizarRE.AllowUserToAddRows = false;
+            this.dgvActualizarRE.AllowUserToDeleteRows = false;
+            this.dgvActualizarRE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvActualizarRE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActualizarRE.Location = new System.Drawing.Point(12, 282);
+            this.dgvActualizarRE.Name = "dgvActualizarRE";
+            this.dgvActualizarRE.ReadOnly = true;
+            this.dgvActualizarRE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvActualizarRE.Size = new System.Drawing.Size(375, 196);
+            this.dgvActualizarRE.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "3) Actualización";
+            // 
+            // dgvTotal
+            // 
+            this.dgvTotal.AllowUserToAddRows = false;
+            this.dgvTotal.AllowUserToDeleteRows = false;
+            this.dgvTotal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTotal.Location = new System.Drawing.Point(478, 282);
+            this.dgvTotal.Name = "dgvTotal";
+            this.dgvTotal.ReadOnly = true;
+            this.dgvTotal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTotal.Size = new System.Drawing.Size(511, 196);
+            this.dgvTotal.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(474, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "4) Especificación de beca";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 450);
+            this.ClientSize = new System.Drawing.Size(1148, 494);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgvTotal);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvActualizarRE);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dgvBecas);
             this.Controls.Add(this.Becalab);
@@ -189,6 +259,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBecas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActualizarRE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTotal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,6 +279,11 @@
         private System.Windows.Forms.Label Becalab;
         private System.Windows.Forms.DataGridView dgvBecas;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView dgvActualizarRE;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvTotal;
+        private System.Windows.Forms.Label label2;
     }
 }
 
